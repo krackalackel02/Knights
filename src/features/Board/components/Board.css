@@ -1,0 +1,53 @@
+.Board {
+	display: grid;
+	gap: 0;
+	border: 5px solid black;
+	aspect-ratio: 1;
+	height: auto;
+	width: 50dvw;
+	margin-inline: auto;
+}
+
+.Square {
+	aspect-ratio: 1;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.Board > .Square {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.Board > .Square::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}
+
+.Board > .Square.Light::before {
+	background-color: white;
+}
+.Board > .Square.Light {
+	color: black;
+}
+
+.Board > .Square.Dark::before {
+	background-color: black;
+}
+.Board > .Square.Dark {
+	color: white;
+}
+
+.Board > .Square.Knight::before {
+	background-color: rgb(255, 136, 136);
+}
+.Board > .Square.Knight {
+	color: black;
+}
