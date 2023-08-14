@@ -5,7 +5,9 @@
 	margin-inline: auto;
 	margin-top: 20px;
 	color: var(--global-theme);
+	transform: translateX(-15px);
 }
+
 .rows {
 	display: flex;
 	flex-direction: column;
