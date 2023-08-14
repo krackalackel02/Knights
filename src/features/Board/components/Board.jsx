@@ -3,7 +3,6 @@ import Square from "./Square";
 import BoardCreator from "../board";
 import "./Board.css";
 const Board = () => {
-	console.log("boardrendered");
 	const [activeKnight, setActiveKnight] = useState(null);
 	const handleToggleKnight = (e) => {
 		const squareElement = e.target.closest(".Square");

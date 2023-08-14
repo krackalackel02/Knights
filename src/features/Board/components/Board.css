@@ -68,7 +68,7 @@
 }
 
 .Board > .Square.Light::before {
-	background-color: white;
+	background-color: var(--alt-theme);
 }
 .Board > .Square.Light {
 	color: var(--global-theme);
@@ -78,7 +78,7 @@
 	background-color: var(--global-theme);
 }
 .Board > .Square.Dark {
-	color: white;
+	color: var(--alt-theme);
 }
 
 .Board > .Square.Knight::before {

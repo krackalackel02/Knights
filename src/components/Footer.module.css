@@ -1,0 +1,24 @@
+.footer {
+	background-color: var(--global-theme);
+	--color: #eeeeee;
+	color: var(--color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 40px;
+	padding: 10px;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.githubIcon {
+	color: var(--color);
+	font-size: 40px;
+	transition: transform 0.3s ease-in-out;
+}
+
+.githubIcon:hover {
+	transform: rotate(360deg) scale(1.2);
+}
