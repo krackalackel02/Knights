@@ -19,7 +19,9 @@ function Buttons() {
 				Target Position
 			</button>
 			<button className="btn btn-play">
-				<img src={Play} alt="Play" />
+				<svg>
+					<use xlinkHref={Play + "#play"}></use>
+				</svg>
 			</button>
 		</div>
 	);

@@ -8,7 +8,13 @@ const Square = ({ position, dark, isKnight }) => {
 			data-row={position[0]}
 			data-col={position[1]}
 		>
-			{isKnight?<img src={Knight} alt="Knight" />: position}
+			{isKnight ? (
+				<svg>
+					<use xlinkHref={Knight + "#knight"}></use>
+				</svg>
+			) : (
+				position
+			)}
 		</div>
 	);
 };
