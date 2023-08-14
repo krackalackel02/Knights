@@ -39,6 +39,7 @@ const Board = () => {
 			className="Board"
 			style={{
 				gridTemplateColumns: `repeat(${numRows}, 1fr)`,
+				gridTemplateRows: `repeat(${numRows}, 1fr)`,
 			}}
 			onClick={handleToggleKnight}
 		>

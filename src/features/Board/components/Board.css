@@ -4,10 +4,23 @@
 	border: 5px solid black;
 	aspect-ratio: 1;
 	height: auto;
-	width: 50dvw;
 	margin-inline: auto;
 }
-
+@media screen and (max-width: 499px) {
+	.Board {
+		width: 80dvw;
+	}
+}
+@media screen and (min-width: 500px) and (max-width: 999px) {
+	.Board {
+		width: 65dvw;
+	}
+}
+@media screen and (min-width: 1000px) {
+	.Board {
+		width: 50dvh;
+	}
+}
 .Square {
 	aspect-ratio: 1;
 	text-align: center;
