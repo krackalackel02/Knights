@@ -11,7 +11,7 @@
 	font-style: normal;
 }
 :root{
-	--global-theme:red;
+	--global-theme:rgb(44, 39, 39);
 	--alt-theme:white;
 	--knight-background-theme:rgb(130, 255, 157);
 	--knight-fill-theme:rgb(0, 0, 0);

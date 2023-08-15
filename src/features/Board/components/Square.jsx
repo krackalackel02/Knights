@@ -13,7 +13,7 @@ const Square = ({ position, dark, isKnight }) => {
 					<use xlinkHref={Knight + "#knight"}></use>
 				</svg>
 			) : (
-				position
+				" " || position
 			)}
 		</div>
 	);

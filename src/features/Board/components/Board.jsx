@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import Square from "./Square";
 import BoardCreator from "../board";
 import "./Board.css";
+import { knightMoves, convert } from "../../Knight/knight";
+import { ACTIONS } from "../gameReducer";
+
 const Board = () => {
 	const [activeKnight, setActiveKnight] = useState(null);
 	const handleToggleKnight = (e) => {
@@ -12,7 +15,7 @@ const Board = () => {
 		setActiveKnight(`${row}-${col}`);
 	};
 
-	const numRows = 5;
+	const numRows = 8;
 	const board = BoardCreator(numRows);
 	let alt = true;
 	let dark = false;
@@ -31,7 +34,6 @@ const Board = () => {
 			);
 		});
 	});
-
 	return (
 		<div className="display">
 			<div className="rows">
