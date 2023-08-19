@@ -57,3 +57,7 @@
 .btn.btn-play.Disabled {
 	color: var(--play-disabled);
 }
+.btn-group {
+    display: flex;
+    gap: 20px; /* This maintains spacing between the last two buttons */
+}

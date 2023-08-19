@@ -9,7 +9,7 @@ function BoardCreator(numRows) {
 	}
 	Rows.forEach((row) => {
 		Columns.forEach((column) => {
-			List.push(`${row + column}`);
+			List.push(`${row + "-" + column}`);
 		});
 	});
 	return { Rows, Columns, List };
@@ -18,9 +18,10 @@ export function convert(input) {
 	let output;
 	if (typeof input === "string") {
 		output = [parseInt(input[0]) - 1];
-		output.push(input[1].toUpperCase().charCodeAt(0) - 65);
+		output.push(input[2].toUpperCase().charCodeAt(0) - 65);
 	} else if (Array.isArray(input)) {
 		output = String(input[0] + 1);
+		output += "-";
 		output += String.fromCharCode(65 + input[1]).toLowerCase();
 	}
 	return output;
@@ -83,7 +84,9 @@ export function knightMoves(
 		let currentPath = node.path;
 
 		if (arraysEqual(currentPosition, finish)) {
-			return currentPath; // Return the path when we find the finish position
+			return currentPath.map((pos) => {
+				return convert(pos);
+			}); // Return the path when we find the finish position
 		}
 
 		let nextMoves = nextMove(currentPosition, board, currentPath);
