@@ -10,7 +10,8 @@ export const ACTIONS = {
 };
 
 export const initialGameState = {
-	waitingFor: "startButton", // startButton | startPos | targetButton | targetPos | null
+	waitingFor: null, // startButton | startPos | targetButton | targetPos | null
+	activeButton: null, // startButton | startPos | targetButton | targetPos | null
 	startPos: null,
 	targetPos: null,
 	isPlaying: false,
@@ -24,32 +25,33 @@ const reducerGame = (state, action) => {
 		case ACTIONS.WAITFORSTARTPOS:
 			return {
 				...state,
-				waitingFor: "startPos",
+				activeButton: state.activeButton!="start" ?"start":null,
+				waitingFor:state.activeButton!="start" ?"startPos":null ,
 			};
-
-		case ACTIONS.SETSTARTPOS:
-			return {
-				...state,
-				startPos: action.startPos,
-				waitingFor: "targetButton",
-			};
-
-		case ACTIONS.WAITFORTARGETPOS:
-			return {
-				...state,
-				waitingFor: "targetPos",
+			
+			case ACTIONS.SETSTARTPOS:
+				return {
+					...state,
+					startPos: action.payload.startPos,
+				};
+				
+				case ACTIONS.WAITFORTARGETPOS:
+					return {
+						...state,
+						activeButton: state.activeButton!="target" ?"target":null,
+				waitingFor:state.activeButton!="target" ?"targetPos":null ,
 			};
 
 		case ACTIONS.SETTARGETPOS:
 			return {
 				...state,
-				targetPos: action.targetPos,
-				waitingFor: null,
+				targetPos: action.payload.targetPos,
 			};
 
 		case ACTIONS.PLAY:
 			return {
 				...state,
+				activeButton:null,
 				isPlaying: true,
 				waitingFor: null,
 			};

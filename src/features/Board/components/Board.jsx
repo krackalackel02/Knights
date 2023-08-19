@@ -1,18 +1,37 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import Square from "./Square";
 import BoardCreator from "../board";
 import "./Board.css";
 import { knightMoves, convert } from "../../Knight/knight";
-import { ACTIONS } from "../gameReducer";
+import { ACTIONS } from "../../../features/Board/gameReducer";
+import { useGame } from "../../../features/Board/gameContext";
 
 const Board = () => {
-	const [activeKnight, setActiveKnight] = useState(null);
+	const { state, dispatch } = useGame();
 	const handleToggleKnight = (e) => {
 		const squareElement = e.target.closest(".Square");
 		if (!squareElement) return;
+		if (!state.activeButton) return;
 		const row = squareElement.getAttribute("data-row");
 		const col = squareElement.getAttribute("data-col");
-		setActiveKnight(`${row}-${col}`);
+		switch (state.activeButton) {
+			case "start":
+				dispatch({
+					type: ACTIONS.SETSTARTPOS,
+					payload: { startPos: `${row}-${col}` },
+				});
+				break;
+
+			case "target":
+				dispatch({
+					type: ACTIONS.SETTARGETPOS,
+					payload: { targetPos: `${row}-${col}` },
+				});
+				break;
+
+			default:
+				break;
+		}
 	};
 
 	const numRows = 8;
@@ -29,7 +48,12 @@ const Board = () => {
 					position={[row, column]}
 					key={`${row}-${column}`}
 					dark={dark}
-					isKnight={activeKnight === `${row}-${column}`}
+					isStartKnight={state.startPos === `${row}-${column}`}
+					isTargetKnight={state.targetPos === `${row}-${column}`}
+					isKnight={
+						state.startPos === `${row}-${column}` ||
+						state.targetPos === `${row}-${column}`
+					}
 				/>
 			);
 		});

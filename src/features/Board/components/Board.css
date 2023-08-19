@@ -83,8 +83,11 @@
 	color: var(--alt-theme);
 }
 
-.Board > .Square.Knight::before {
-	background-color: var(--knight-background-theme);
+.Board > .Square.StartKnight::before {
+	background-color: var(--knight-start-background-theme);
+}
+.Board > .Square.TargetKnight::before {
+	background-color: var(--knight-target-background-theme);
 }
 .Board > .Square.Knight {
 	color: var(--knight-fill-theme);

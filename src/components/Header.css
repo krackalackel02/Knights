@@ -9,6 +9,9 @@
 	font-size: 20px;
 	text-align: center;
 }
+.header:hover {
+	cursor: pointer;
+}
 .header svg{
 	height: 60px;
 	width: 60px;

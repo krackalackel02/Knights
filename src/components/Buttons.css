@@ -17,7 +17,8 @@
 	aspect-ratio: 1;
 	fill: transparent;
 }
-.btn-play,.btn-reset {
+.btn-play,
+.btn-reset {
 	border-radius: 50%;
 	height: 60px;
 	aspect-ratio: 1;
@@ -36,6 +37,23 @@
 	margin-top: 10px;
 	color: var(--global-theme);
 }
-.btn:hover {
+.btn:not(.Disabled):hover {
 	cursor: pointer;
+	scale: 1.05;
+}
+.rotate-animation {
+	transition: transform 500ms linear;
+	transform: rotate(360deg);
+}
+.btn.Selected {
+	scale: 1.1;
+}
+.btn.Selected.start {
+	border: 2px solid var(--start-selected);
+}
+.btn.Selected.target {
+	border: 2px solid var(--target-selected);
+}
+.btn.btn-play.Disabled {
+	color: var(--play-disabled);
 }

@@ -14,6 +14,11 @@
 	--global-theme:rgb(44, 39, 39);
 	--alt-theme:white;
 	--knight-background-theme:rgb(130, 255, 157);
+	--knight-start-background-theme:rgb(130, 255, 157);
+	--knight-target-background-theme:rgb(255, 94, 94);
+	--play-disabled:rgb(150, 150, 150);
+	--target-selected:red;
+	--start-selected:green;
 	--knight-fill-theme:rgb(0, 0, 0);
 }
 * {
@@ -21,4 +26,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Poppins";
+}
+body{
+	overflow-x: hidden;
 }

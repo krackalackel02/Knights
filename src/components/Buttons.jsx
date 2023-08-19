@@ -6,12 +6,14 @@ import Reset from "../assets/reset.svg";
 import "./Buttons.css";
 import { ACTIONS } from "../features/Board/gameReducer";
 import { useGame } from "../features/Board/gameContext";
+import { useState } from "react";
 function Buttons() {
 	const { state, dispatch } = useGame();
+	const [isAnimating, setIsAnimating] = useState({ bool: false, type: null });
 	return (
 		<div className="btn-grid">
 			<button
-				className="btn btn-position"
+				className={`btn btn-position start ${state.activeButton=="start"?"Selected":""}`}
 				onClick={(e) => {
 					dispatch({ type: ACTIONS.WAITFORSTARTPOS });
 				}}
@@ -22,7 +24,7 @@ function Buttons() {
 				Start Position
 			</button>
 			<button
-				className="btn btn-position"
+				className={`btn btn-position target ${state.activeButton=="target"?"Selected":""}`}
 				onClick={(e) => {
 					dispatch({ type: ACTIONS.WAITFORTARGETPOS });
 				}}
@@ -33,9 +35,16 @@ function Buttons() {
 				Target Position
 			</button>
 			<button
-				className={`btn btn-play`}
+				className={`btn btn-play ${
+					isAnimating.bool && isAnimating.type === "play" && "rotate-animation"
+				} ${!state.startPos&&!state.targetPos&&"Disabled"}`}
 				onClick={(e) => {
+					if (!state.startPos&&!state.targetPos) {
+						return
+					}
 					dispatch({ type: ACTIONS.PLAY });
+					setIsAnimating({ bool: true, type: "play" });
+					setTimeout(() => setIsAnimating({ bool: false, type: null }), 500);
 				}}
 			>
 				<svg>
@@ -43,9 +52,13 @@ function Buttons() {
 				</svg>
 			</button>
 			<button
-				className="btn btn-reset"
+				className={`btn btn-reset ${
+					isAnimating.bool && isAnimating.type === "reset" && "rotate-animation"
+				}`}
 				onClick={(e) => {
 					dispatch({ type: ACTIONS.RESET_GAME });
+					setIsAnimating({ bool: true, type: "reset" });
+					setTimeout(() => setIsAnimating({ bool: false, type: null }), 500);
 				}}
 			>
 				<svg>
