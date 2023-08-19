@@ -37,11 +37,12 @@ function Buttons() {
 			<button
 				className={`btn btn-play ${
 					isAnimating.bool && isAnimating.type === "play" && "rotate-animation"
-				} ${!state.startPos&&!state.targetPos&&"Disabled"}`}
+				} ${(!state.startPos||!state.targetPos)&&"Disabled"}`}
 				onClick={(e) => {
-					if (!state.startPos&&!state.targetPos) {
+					if (!state.startPos||!state.targetPos) {
 						return
 					}
+					console.log(state.startPos,state.targetPos)
 					dispatch({ type: ACTIONS.PLAY });
 					setIsAnimating({ bool: true, type: "play" });
 					setTimeout(() => setIsAnimating({ bool: false, type: null }), 500);
