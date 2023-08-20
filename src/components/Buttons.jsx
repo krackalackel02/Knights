@@ -53,9 +53,9 @@ function Buttons() {
 						dispatch({ type: ACTIONS.PLAY });
 						setIsAnimating({ bool: true, type: "play" });
 						setTimeout(() => setIsAnimating({ bool: false, type: null }), 500);
-						alert(
-							knightMoves(convert(state.startPos), convert(state.targetPos))
-						);
+						// alert(
+						// 	knightMoves(convert(state.startPos), convert(state.targetPos))
+						// );
 					}}
 				>
 					<svg>

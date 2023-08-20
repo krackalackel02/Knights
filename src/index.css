@@ -16,6 +16,7 @@
 	--knight-background-theme:rgb(130, 255, 157);
 	--knight-start-background-theme:rgb(130, 255, 157);
 	--knight-target-background-theme:rgb(255, 94, 94);
+	--knight-path-background-theme:rgb(94, 204, 255);
 	--play-disabled:rgb(150, 150, 150);
 	--target-selected:red;
 	--start-selected:green;

@@ -50,9 +50,12 @@ const Board = () => {
 					dark={dark}
 					isStartKnight={state.startPos === `${row}-${column}`}
 					isTargetKnight={state.targetPos === `${row}-${column}`}
+					isPath={state.path?.slice(1, state.path.length - 1).indexOf(`${row}-${column}`)+1}
 					isKnight={
 						state.startPos === `${row}-${column}` ||
-						state.targetPos === `${row}-${column}`
+						state.targetPos === `${row}-${column}` ||
+						state.path?.includes(`${row}-${column}`)
+						
 					}
 				/>
 			);

@@ -89,6 +89,9 @@
 .Board > .Square.TargetKnight::before {
 	background-color: var(--knight-target-background-theme);
 }
+.Board > .Square.PathKnight::before {
+	background-color: var(--knight-path-background-theme);
+}
 .Board > .Square.Knight {
 	color: var(--knight-fill-theme);
 }
