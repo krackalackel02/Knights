@@ -9,7 +9,7 @@ export default function Footer() {
 	return (
 		<footer className={styles.footer}>
 			<span>Copyright © {currentYear} Krackalackel02</span>
-			<a href="https://github.com/krackalackel02" target="_blank">
+			<a href="https://github.com/krackalackel02/Knights" target="_blank">
 				<FontAwesomeIcon icon={faGithub} className={styles.githubIcon} />
 			</a>
 		</footer>
