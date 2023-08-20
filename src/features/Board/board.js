@@ -9,7 +9,7 @@ export default function BoardCreator(numRows) {
 	}
 	Rows.forEach((row) => {
 		Columns.forEach((column) => {
-			List.push(`${row + column}`);
+			List.push(`${row + "-" + column}`);
 		});
 	});
 	return { Rows, Columns, List };

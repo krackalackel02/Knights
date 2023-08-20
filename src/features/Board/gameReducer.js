@@ -1,4 +1,5 @@
 import { knightMoves, convert } from "../Knight/knight";
+import BoardCreator from "./board";
 export const ACTIONS = {
 	WAITFORSTARTBUTTON: "waitForStartButton",
 	WAITFORSTARTPOS: "waitForStartPos",
@@ -8,6 +9,7 @@ export const ACTIONS = {
 	SETTARGETPOS: "setTargetPos",
 	PLAY: "play",
 	RESET_GAME: "resetGame",
+	CHANGEGRID: "changeGrid",
 };
 
 export const initialGameState = {
@@ -17,6 +19,7 @@ export const initialGameState = {
 	targetPos: null,
 	isPlaying: false,
 	path: null,
+	gridSize: 8,
 };
 
 const reducerGame = (state, action) => {
@@ -55,17 +58,29 @@ const reducerGame = (state, action) => {
 			};
 
 		case ACTIONS.PLAY:
+			console.log(state.path);
 			return {
 				...state,
 				activeButton: null,
 				isPlaying: true,
 				waitingFor: null,
-				path: knightMoves(convert(state.startPos), convert(state.targetPos)),
+				path: knightMoves(
+					convert(state.startPos),
+					convert(state.targetPos),
+					BoardCreator(state.gridSize).List.map((item) => {
+						return convert(item);
+					})
+				),
 			};
 
 		case ACTIONS.RESET_GAME:
-			return { ...initialGameState };
+			return { ...initialGameState, gridSize: state.gridSize };
 
+		case ACTIONS.CHANGEGRID:
+			return {
+				...initialGameState,
+				gridSize: action.payload.grid,
+			};
 		default:
 			return state;
 	}

@@ -34,7 +34,7 @@ const Board = () => {
 		}
 	};
 
-	const numRows = 8;
+	const numRows = state.gridSize;
 	const board = BoardCreator(numRows);
 	let alt = true;
 	let dark = false;
